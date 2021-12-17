@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :spaceships
-  resources :missions
-  resources :crew_members
-  # resources :model, only: [:index]
+  resources :spaceships, only: %i[index show create]
+  resources :crew_members, only: %i[index show create]
+  resources :missions, only: %i[index show create]
 end

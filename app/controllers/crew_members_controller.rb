@@ -3,12 +3,17 @@
 class CrewMembersController < ApplicationController
   def index
     @crew_members = CrewMember.all
-    print 'hello'
+    render json: @crew_members
   end
 
   def create
-    @crew_members = CrewMember.create!(crew_member_params)
-    # json_response(@crew_member, :created)
+    @crew_member = CrewMember.create!(crew_member_params)
+    json_response(@crew_member, :created)
+  end
+
+  def show
+    @crew_member = CrewMember.find(crew_member_params)
+    render json: @crew_member
   end
 
   private

@@ -11,8 +11,7 @@ RSpec.describe 'Spaceships', type: :request do
       get '/spaceships'
 
       expect(response).to have_http_status(:success)
-      # byebug
-      # expect(JSON.parse(response.body).size).to eq(2)
+      expect(Spaceship.count).to eq(2)
     end
   end
 end

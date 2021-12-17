@@ -2,6 +2,5 @@
 
 class Spaceship < ApplicationRecord
   has_many :crew_members
-  validates :name, presence: true
-  validates :crew, presence: true
+  validates_presence_of :name, :crew
 end

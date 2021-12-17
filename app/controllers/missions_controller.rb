@@ -3,12 +3,17 @@
 class MissionsController < ApplicationController
   def index
     @missions = Mission.all
-    print 'hello'
+    render json: @missions
   end
 
   def create
     @missions = Mission.create!(mission_params)
-    # json_response(@mission, :created)
+    json_response(@mission, :created)
+  end
+
+  def show
+    @mission = Mission.find(mission_params)
+    render json: @mission
   end
 
   private
